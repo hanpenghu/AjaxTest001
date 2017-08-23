@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<button id="A1" style="height: 100px;width: 100px" >
+
+</button>
+        <script type="text/javascript">
+
+            $("#A1").click(function () {//
+                alert("年后");
+                $.ajax({
+                    type: "GET",
+                    url: "www.baidu.com",
+
+                    success: function(msg){
+                        alert( "Data Saved: " + msg );
+                    }
+                });
+            })
+
+
+
+        </script>
+</body>
+</html>
