@@ -3,28 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="./jquery-3.2.1.min.js"></script>
+    <script src="jquery-1.8.0.js"></script>
 </head>
 <body>
 <button id="A1" style="height: 100px;width: 100px" >
 
 </button>
         <script type="text/javascript">
-
-            $("#A1").click(function () {//
+            $("#A1").click(function () {//点击按钮后先alert，再发送ajax
                 alert("年后");
-                $.ajax({
-                    type: "GET",
-                    url: "www.baidu.com",
 
-                    success: function(msg){
-                        alert( "Data Saved: " + msg );
+                var saveData={cangKuNum:"123",jingBanRenNum:"321"}
+
+                $.ajax({
+                    url : "http://127.0.0.1:8071/panDianDanList",
+                    type : "POST",
+                    //data : '{"cangKuNum":"123","jingBanRenNum":"321"}',//可用
+                    data:JSON.stringify(saveData),//和上面一行都可用
+                    dataType : "json",
+                    contentType : "application/json;charset=utf-8",
+                    success:function(data){
+                        alert( "Data Saved: " + data );
                     }
                 });
             })
-
-
-
         </script>
 </body>
 </html>
